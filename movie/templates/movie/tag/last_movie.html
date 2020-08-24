@@ -1,0 +1,11 @@
+
+<h3>Свежие фильмы</h3>
+
+{% for movie in last_movies %}
+<ul>
+    <li>
+        <h6>{{ movie.name }} </h6>
+        <img src="{{ movie.poster.url }} " style="width: 200px;">
+    </li>
+</ul>
+{% endfor %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="card-title">{{ genre.name }}</h2>
+
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+    {% for movie in genre.film_genre.all %}
+        <h2><a href="{% url 'movie:movie_detail' movie.url %}">{{ movie.name }}</a></h2>
+        <img src="{{ movie.poster.url }}" style="max-width: 400px;">
+    {% endfor %}
+
+{% endblock content %}

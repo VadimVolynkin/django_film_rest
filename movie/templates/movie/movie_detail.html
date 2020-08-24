@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+          <img src="{{ movie.poster.url }}" style="max-height: 600px; max-width:400px;">
+          <div class="card-body">
+            <h1 class="card-title">{{ movie.name }}</h1>
+
+            <h2>Жанры фильма:</h2>
+            <ul>
+                {% for genre in movie.genres.all %}
+                    <li><h3><a href="{% url 'movie:genre_detail' genre.url %}">{{ genre.name }}</a></h3></li>
+                {% endfor %}
+            </ul>
+
+            <h2>Актеры снявшиеся в фильме:</h2>
+            <ul>
+                {% for actor in movie.actors.all %}
+                      <li><h3><a href="{% url 'movie:actor_detail' actor.url %}">{{ actor.name }}</a></h3></li>
+                {% endfor %}
+            </ul>
+
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="card-footer">Tag</div>
+          </div>
+
+{% endblock content %}

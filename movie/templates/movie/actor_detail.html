@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+          <img src="{{ actor.image.url }}">
+          <div class="card-body">
+            <h2 class="card-title">{{ actor.name }}</h2>
+
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+
+{% for movie in actor.film_actor.all %}
+    <h2><a href="{% url 'movie:movie_detail' movie.url %}">{{ movie.name }}</a></h2>
+    <img src="{{ movie.poster.url }}" style="width: 400px;">
+{% endfor %}
+
+{% endblock content %}

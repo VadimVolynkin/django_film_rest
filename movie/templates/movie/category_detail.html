@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="card-title">{{ category.name }}</h2>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <ul>
+        {% for movie in category.film_category.all %}
+
+            <li>
+                <h2><a href="{% url 'movie:movie_detail' movie.url %}">{{ movie.name }}</a></h2>
+            </li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
