@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from rest_framework.pagination import PageNumberPagination
 
 
 class Category(models.Model):
@@ -86,5 +87,12 @@ class Review(models.Model):
     class Meta:
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
+
+
+# class PaginationMovies(PageNumberPagination):
+#     page_size = 2
+#     max_page_size = 1000
+
+
 
 
