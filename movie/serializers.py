@@ -24,7 +24,7 @@ class MovieListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        fields = ('id', 'name', 'description', 'category')
+        fields = ('id', 'name', 'description', 'category', 'poster')
 
 class ReviewCreateSerializer(serializers.ModelSerializer):
     """ Добавление отзыва """

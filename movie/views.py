@@ -1,8 +1,7 @@
-from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 
 from .models import Movie, Actor
@@ -31,7 +30,7 @@ class MovieDetailView(APIView):
 
 
 class ReviewCreateView(APIView):
-    """ Вывод фильма """
+    """ Написать отзыв """
 
     def post(self, request):
         review = ReviewCreateSerializer(data=request.data)
@@ -40,15 +39,15 @@ class ReviewCreateView(APIView):
         return Response(status=201)
 
 
-class ActorListView(generics.ListAPIView):
+class ActorListView(ListAPIView):
     """ Вывод списка актеров """
 
     queryset = Actor.objects.all()
     serializer_class = ActorListSerializer
 
 
-class ActorDetailView(generics.RetrieveAPIView):
-    """ Вывод списка актеров """
+class ActorDetailView(RetrieveAPIView):
+    """ Вывод актера """
 
     queryset = Actor.objects.all()
     serializer_class = ActorDetailSerializer

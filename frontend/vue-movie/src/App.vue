@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
-
-    </div>
+    <Nav />
     <router-view/>
+    <Footer />
   </div>
 </template>
 
-<style>
+<script>
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+export default {
+  components: {Nav, Footer}
+  
+}
+</script>
 
+<style>
+@import "assets/css/style.css";
 </style>
