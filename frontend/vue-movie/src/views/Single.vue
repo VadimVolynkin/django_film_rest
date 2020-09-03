@@ -32,9 +32,6 @@ export default {
             this.movie = await fetch(
             `${this.$store.getters.getServerUrl}/movie/${this.id}`
         ).then(response => response.json())
-        console.log(this.movie)
-        console.log(this.id)
-        console.log(this.state)
         }
     }
 }
